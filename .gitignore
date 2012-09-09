@@ -1,0 +1,16 @@
+/.classpath
+/.settings
+/.project
+/*.launch
+
+# Temporary Build
+/target
+/target-eclipse 
+ 
+# Logs
+/stacktrace.log
+/test/reports
+/logs
+
+# Plugin release file
+/*.zip
