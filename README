@@ -68,4 +68,9 @@ Beans added to application and accessible by variable injection:
 
 openObjectConnector - implements low lavel methods to access XML-RPC interface of Open Object in OpenERP
 
+============================================================================
+THANKS
+To Raphael Valyi, whose ooor (Open Object on Rails) project we relied on to implement the interface to access XML-RPC and treatment of meta information.
+To MongoDB plugin for ideas about the GORM compatible data model implementation.
+
 
