@@ -1,3 +1,23 @@
+/*============================================================================
+ * Copyright (c) 2012 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ============================================================================*/
+
+Open Object on Grails Plugin
+
+Open Objects are the ORM base by OpenERP, a open source ERP implemented in Python (www.openerp.com).
+
 This plugins implements a interface to Open Objects OpenErp data model. The Open Object
 model is accessible using local classes (that extends GrailsDomainClass form Gorm) and
 implements the default methods of Grom.
@@ -5,4 +25,47 @@ Behind the scene, the XML-RPC Open Object Interface is used to get the meta info
 configuration (injecting properties and methods) and to get the data to populate the objects
 returned from find*, get and criteria methods.
 
+============================================================================
+HISTORY
+
 Version 0.2 - Not yet usable, in development 
+
+Obs.: This plugins is not functional. We are in development phase. 
+
+============================================================================
+INSTALL
+
+In command line (not yet functional, this plugin has not been submitted to the official website of grails plugin) :
+	grails install-plugin ooog
+
+or add to BuidConfig.groovy the plugin dependency
+
+
+============================================================================
+POST-INSTALL
+
+After install is necessary to create the Open Objects classes. For this, run the script GenerateOoerpClasses, it will access the OpenERP server and obtain the model and use it to generate the classes in the grails-app/ooerp directory.
+
+	grails generate-ooerp-classes username@server:[port]/database
+
+Where:
+- username: is the username to access the OpenErp system. The user is need to have access to model, generally the admin user.
+- server: address of host
+- port: port of acess to XML-RPC interface, if not informed is used the default
+- database: database name that will be used to generate the class
+
+
+Exemple:
+	grails generate-ooerp-classes admin@192.168.1.81/mydatabase
+
+The script will prompt for the password, type it and press ENTER. After this, the script access the OpenERP XML-RPC and get the meta info about the model classes and generate the equivalents classes in grails project.
+
+
+============================================================================
+SPRING BEANS
+
+Beans added to application and accessible by variable injection:
+
+openObjectConnector - implements low lavel methods to access XML-RPC interface of Open Object in OpenERP
+
+
