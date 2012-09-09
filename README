@@ -1,0 +1,8 @@
+This plugins implements a interface to Open Objects OpenErp data model. The Open Object
+model is accessible using local classes (that extends GrailsDomainClass form Gorm) and
+implements the default methods of Grom.
+Behind the scene, the XML-RPC Open Object Interface is used to get the meta info for class
+configuration (injecting properties and methods) and to get the data to populate the objects
+returned from find*, get and criteria methods.
+
+Version 0.2 - Not yet usable, in development 
